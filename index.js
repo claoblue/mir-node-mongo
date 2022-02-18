@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const { dataBaseConnect } = require('./src/db');
 
 const guestRoutes = require("./src/routes/guests");
+const familyRoutes = require("./src/routes/family");
 
 // Express server
 const app = express();
@@ -18,6 +19,7 @@ dataBaseConnect();
 
 // Rutas para manejar los requests
 app.use("/guests", guestRoutes);
+app.use("/family", familyRoutes);
 
 const port = process.env.PORT || 8080;
 app.listen(port, function() {
